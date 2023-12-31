@@ -29,7 +29,8 @@ public class Main {
     public static void main(String[] args) {
         // Inicia tu partida de ajedrez aquí
     }
-}```
+}
+```
 
 ## 🧩 Personalización de Piezas
 
