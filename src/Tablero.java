@@ -1,15 +1,20 @@
 public class Tablero {
     private String[][][] tablero = new String[8][8][2];
 
-    public void tableroIni(){
+    public Tablero(){
         for(int x = 0; x < 8; x++){
             for(int y = 0; y < 8; y++){
                 for(int z = 0; z < 2; z++){
                     char letraColumna = (char) ('a' + y);
-                    tablero[x][y][z] = (z == 0) ? String.valueOf(letraColumna) + (x + 1): "";
+                    this.tablero[x][y][z] = (z == 0) ? String.valueOf(letraColumna) + (x + 1): "";
                 }
             }
         }
+
+    }
+
+    public String[][][] getTablero() {
+        return tablero;
     }
 
     public void setTablero(int x, int y, String pieza){
@@ -35,7 +40,4 @@ public class Tablero {
             }
         }
     }
-
-
-
 }

@@ -4,7 +4,7 @@ abstract class Piezas {
     private boolean existe;
     private int[] posicion = new int[2];
 
-    public abstract void posicionIni();
+    public abstract Piezas posicionIni(int i);
 
     public void mover(char x, int y) {
         x = Character.toLowerCase(x);
@@ -24,55 +24,69 @@ abstract class Piezas {
     }
 
     public Piezas(String nombre, int[] posicion){
+
         this(nombre, posicion, true);
     }
 
+    public String getNombre() {
+        return nombre;
+    }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
+    public boolean getExiste() {
+        return existe;
+    }
+
+    public void setExiste(boolean existe) {
+        this.existe = existe;
+    }
+
+    public int[] getPosicion() {
+        return posicion;
+    }
+
+    public void setPosicion(int[] posicion) {
+        this.posicion = posicion;
+    }
 }
 /* ---------------------------------------------------------------------------------- */
 class Peones extends Piezas{
 
-   public Peones(String nombre, int[] posicion) {
-        super(nombre, posicion);
+    public Peones(String color ,int[] posicion) {
+       super("Peon" + color, posicion);
     }
+    public Peones posicionIni(int i){
 
-    public void posicionIni(){
-        for(int x = 0; x < 2; x++){
-            int columna = (x == 0) ? 1 : 7;
-            for(int y = 0; y < 8; y++){
-                int [] posicion = new int[]{columna, y};
+       return (i < 8) ?
+               new Peones("(+)", new int[]{1, i}):
+               new Peones("(-)", new int[]{6, 15 - i});
 
-                Peones peon = (x == 0) ?
-                        new Peones("Peon +", posicion) :
-                        new Peones("Peon -", posicion) ;
-            }
-        }
     }
 }
+
 /* ------------------------------------------------------------- */
 
 class Torres extends Piezas{
-    public Torres(String nombre, int[] posicion) {
-        super(nombre, posicion);
+    public Torres(String color, int[] posicion) {
+        super("Torre" + color, posicion);
     }
 
-    public void posicionIni(){
-        for(int x = 0; x < 2; x++){
-            for(int y = 0; y < 2; y++){
-                int columna = (x == 1) ? 7 : 0;
-                int fila = (y == 1) ? 7 : 0;
-                int [] posicion;
-                posicion = new int[]{columna, fila};
-                Torres torre = (x == 0) ?
-                        new Torres("Torre +", posicion):
-                        new Torres("Torre -", posicion);
-            }
-        }
+    public Torres posicionIni(int i) {
+        int columna = (i < 2) ? 0 : 7;
+        int fila = (i % 2 == 0) ? 7 : 0;
+        int[] posicion = new int[]{columna, fila};
+    return (i < 2) ?
+        new Torres("(+)", posicion):
+        new Torres("(-)", posicion);
     }
 }
-/* ------------------------------------------------------------- */
 
+
+/* ------------------------------------------------------------- */
+/*
 class Caballos extends Piezas{
     public Caballos(String nombre, int[] posicion) {
         super(nombre, posicion);
@@ -93,7 +107,7 @@ class Caballos extends Piezas{
     }
 }
 /* ------------------------------------------------------------- */
-
+/*
 class Alfiles extends Piezas{
     public Alfiles(String nombre, int[] posicion) {
         super(nombre, posicion);
@@ -114,7 +128,7 @@ class Alfiles extends Piezas{
     }
 }
 /* ------------------------------------------------------------- */
-
+/*
 class Reyes extends Piezas{
     public Reyes(String nombre, int[] posicion) {
         super(nombre, posicion);
@@ -132,7 +146,7 @@ class Reyes extends Piezas{
     }
 }
 /* ------------------------------------------------------------- */
-
+/*
 class Reinas extends Piezas{
     public Reinas(String nombre, int[] posicion) {
         super(nombre, posicion);
@@ -149,4 +163,4 @@ class Reinas extends Piezas{
         }
     }
 }
-
+*/
