@@ -13,7 +13,7 @@
 - **Main.java:** Punto de entrada del programa.
 - **Tablero.java:** Clase que representa el tablero de ajedrez.
 - **Piezas.java:** Clase abstracta para las piezas del juego.
-- **Peones.java, Torres.java, Caballos.java, Alfiles.java, Reyes.java, Reinas.java:** Clases que heredan de Piezas y representan las distintas piezas del ajedrez.
+- **Piezas.Peones.java, Piezas.Torres.java, Piezas.Caballos.java, Piezas.Alfiles.java, Piezas.Reyes.java, Piezas.Reinas.java:** Clases que heredan de Piezas y representan las distintas piezas del ajedrez.
 - **PartidaAjedrez.java:** Clase que gestiona la partida de ajedrez, colocación de piezas en el tablero, etc.
 
 ## 🎲 Reglas del Juego
@@ -34,7 +34,7 @@ public class Main {
 
 ## 🧩 Personalización de Piezas
 
-Las clases Peones, Torres, Caballos, Alfiles, Reyes, y Reinas permiten personalizar cada pieza del juego.
+Las clases Piezas.Peones, Piezas.Torres, Piezas.Caballos, Piezas.Alfiles, Piezas.Reyes, y Piezas.Reinas permiten personalizar cada pieza del juego.
 
 ## 🤝 Contribuciones
 

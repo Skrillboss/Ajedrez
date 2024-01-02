@@ -51,100 +51,94 @@ abstract class Piezas {
     public void setPosicion(int[] posicion) {
         this.posicion = posicion;
     }
-}
-/* ---------------------------------------------------------------------------------- */
-class Peones extends Piezas{
 
-    public Peones(String color ,int[] posicion) {
-       super("Peon" + color, posicion);
-    }
-    public Peones posicionIni(int i){
+    static class Torres extends Piezas {
+        public Torres(String color, int[] posicion) {
+            super("Torre" + color, posicion);
+        }
 
-       return (i < 8) ?
-               new Peones("(+)", new int[]{1, i}):
-               new Peones("(-)", new int[]{6, 15 - i});
-
-    }
-}
-
-/* ------------------------------------------------------------- */
-
-class Torres extends Piezas{
-    public Torres(String color, int[] posicion) {
-        super("Torre" + color, posicion);
+        public Torres posicionIni(int i) {
+            int columna = (i < 2) ? 0 : 7;
+            int fila = (i % 2 == 0) ? 7 : 0;
+            int[] posicion = new int[]{columna, fila};
+            return (i < 2) ?
+                    new Torres("(+)", posicion) :
+                    new Torres("(-)", posicion);
+        }
     }
 
-    public Torres posicionIni(int i) {
-        int columna = (i < 2) ? 0 : 7;
-        int fila = (i % 2 == 0) ? 7 : 0;
-        int[] posicion = new int[]{columna, fila};
-    return (i < 2) ?
-        new Torres("(+)", posicion):
-        new Torres("(-)", posicion);
-    }
-}
+    static class Reyes extends Piezas {
+        public Reyes(String color, int[] posicion) {
+            super("Rey" + color, posicion);
+        }
 
-
-/* ------------------------------------------------------------- */
-
-class Caballos extends Piezas{
-    public Caballos(String color, int[] posicion) {
-        super("Caballo" + color , posicion);
+        public Reyes posicionIni(int i) {
+            int columna = (i < 1) ? 0 : 7;
+            int[] posicion = new int[]{columna, 3};
+            return (1 < 2) ?
+                    new Reyes("(+)", posicion) :
+                    new Reyes("(-)", posicion);
+        }
     }
 
-    public Caballos posicionIni(int i){
-        int columna = (i < 2) ? 0 : 7;
-        int fila = (i % 2 == 0) ? 6 : 1;
-        int[] posicion = new int[]{columna, fila};
-        return (1 < 2) ?
-                new Caballos("(+)", posicion):
-                new Caballos("(-)", posicion);
-    }
-}
-/* ------------------------------------------------------------- */
+    static class Reinas extends Piezas {
+        public Reinas(String color, int[] posicion) {
+            super("Reina" + color, posicion);
+        }
 
-class Alfiles extends Piezas{
-    public Alfiles(String color, int[] posicion) {
-        super("Alfil" + color, posicion);
+        public Reinas posicionIni(int i) {
+            int columna = (i < 1) ? 0 : 7;
+            int[] posicion = new int[]{columna, 4};
+            return (1 < 2) ?
+                    new Reinas("(+)", posicion) :
+                    new Reinas("(-)", posicion);
+        }
     }
 
-    public Alfiles posicionIni(int i){
-        int columna = (i < 2) ? 0 : 7;
-        int fila = (i % 2 == 0) ? 5 : 2;
-        int[] posicion = new int[]{columna, fila};
-        return (1 < 2) ?
-                new Alfiles("(+)", posicion):
-                new Alfiles("(-)", posicion);
-    }
-}
-/* ------------------------------------------------------------- */
+    /* ---------------------------------------------------------------------------------- */
+    static class Peones extends Piezas {
 
-class Reyes extends Piezas{
-    public Reyes(String color, int[] posicion) {
-        super("Rey" + color, posicion);
-    }
+        public Peones(String color, int[] posicion) {
+            super("Peon" + color, posicion);
+        }
 
-    public Reyes posicionIni(int i){
-        int columna = (i < 1) ? 0 : 7;
-        int[] posicion = new int[]{columna, 3};
-        return (1 < 2) ?
-                new Reyes("(+)", posicion):
-                new Reyes("(-)", posicion);
-    }
-}
-/* ------------------------------------------------------------- */
+        public Peones posicionIni(int i) {
 
-class Reinas extends Piezas{
-    public Reinas(String color, int[] posicion) {
-        super("Reina" + color, posicion);
+            return (i < 8) ?
+                    new Peones("(+)", new int[]{1, i}) :
+                    new Peones("(-)", new int[]{6, 15 - i});
+
+        }
     }
 
-    public Reinas posicionIni(int i){
-        int columna = (i < 1) ? 0 : 7;
-        int[] posicion = new int[]{columna, 4};
-        return (1 < 2) ?
-                new Reinas("(+)", posicion):
-                new Reinas("(-)", posicion);
+    static class Caballos extends Piezas {
+        public Caballos(String color, int[] posicion) {
+            super("Caballo" + color, posicion);
+        }
+
+        public Caballos posicionIni(int i) {
+            int columna = (i < 2) ? 0 : 7;
+            int fila = (i % 2 == 0) ? 6 : 1;
+            int[] posicion = new int[]{columna, fila};
+            return (1 < 2) ?
+                    new Caballos("(+)", posicion) :
+                    new Caballos("(-)", posicion);
+        }
+    }
+
+    static class Alfiles extends Piezas {
+        public Alfiles(String color, int[] posicion) {
+            super("Alfil" + color, posicion);
+        }
+
+        public Alfiles posicionIni(int i) {
+            int columna = (i < 2) ? 0 : 7;
+            int fila = (i % 2 == 0) ? 5 : 2;
+            int[] posicion = new int[]{columna, fila};
+            return (1 < 2) ?
+                    new Alfiles("(+)", posicion) :
+                    new Alfiles("(-)", posicion);
+        }
     }
 }
 
