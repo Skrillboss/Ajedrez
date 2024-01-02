@@ -86,81 +86,65 @@ class Torres extends Piezas{
 
 
 /* ------------------------------------------------------------- */
-/*
+
 class Caballos extends Piezas{
-    public Caballos(String nombre, int[] posicion) {
-        super(nombre, posicion);
+    public Caballos(String color, int[] posicion) {
+        super("Caballo" + color , posicion);
     }
 
-    public void posicionIni(){
-        for(int x = 0; x < 2; x++){
-            for(int y = 0; y < 2; y++){
-                int columna = (x == 1) ? 7 : 0;
-                int fila = (y == 1) ? 6 : 1;
-                int [] posicion;
-                posicion = new int[]{columna, fila};
-                Caballos caballo = (x == 0) ?
-                        new Caballos("Caballo +", posicion):
-                        new Caballos("Caballo -", posicion);
-            }
-        }
+    public Caballos posicionIni(int i){
+        int columna = (i < 2) ? 0 : 7;
+        int fila = (i % 2 == 0) ? 6 : 1;
+        int[] posicion = new int[]{columna, fila};
+        return (1 < 2) ?
+                new Caballos("(+)", posicion):
+                new Caballos("(-)", posicion);
     }
 }
 /* ------------------------------------------------------------- */
-/*
+
 class Alfiles extends Piezas{
-    public Alfiles(String nombre, int[] posicion) {
-        super(nombre, posicion);
+    public Alfiles(String color, int[] posicion) {
+        super("Alfil" + color, posicion);
     }
 
-    public void posicionIni(){
-        for(int x = 0; x < 2; x++){
-            for(int y = 0; y < 2; y++){
-                int columna = (x == 1) ? 7 : 0;
-                int fila = (y == 1) ? 5 : 2;
-                int [] posicion;
-                posicion = new int[]{columna, fila};
-                Alfiles alfil = (x == 0) ?
-                        new Alfiles("Alfil +", posicion):
-                        new Alfiles("Alfil -", posicion);
-            }
-        }
+    public Alfiles posicionIni(int i){
+        int columna = (i < 2) ? 0 : 7;
+        int fila = (i % 2 == 0) ? 5 : 2;
+        int[] posicion = new int[]{columna, fila};
+        return (1 < 2) ?
+                new Alfiles("(+)", posicion):
+                new Alfiles("(-)", posicion);
     }
 }
 /* ------------------------------------------------------------- */
-/*
+
 class Reyes extends Piezas{
-    public Reyes(String nombre, int[] posicion) {
-        super(nombre, posicion);
+    public Reyes(String color, int[] posicion) {
+        super("Rey" + color, posicion);
     }
 
-    public void posicionIni(){
-        for(int x = 0; x < 2; x++){
-            int columna = (x == 0) ? 0 : 7;
-            int[] posicion = new int[]{columna, 3};
-
-            Reyes rey = (x == 0) ?
-                    new Reyes("Rey +", posicion):
-                    new Reyes("Rey -", posicion);
-        }
+    public Reyes posicionIni(int i){
+        int columna = (i < 1) ? 0 : 7;
+        int[] posicion = new int[]{columna, 3};
+        return (1 < 2) ?
+                new Reyes("(+)", posicion):
+                new Reyes("(-)", posicion);
     }
 }
 /* ------------------------------------------------------------- */
-/*
+
 class Reinas extends Piezas{
-    public Reinas(String nombre, int[] posicion) {
-        super(nombre, posicion);
+    public Reinas(String color, int[] posicion) {
+        super("Reina" + color, posicion);
     }
 
-    public void posicionIni(){
-        for(int x = 0; x < 2; x++){
-            int columna = (x == 0) ? 0 : 7;
-            int[] posicion = new int[]{columna, 4};
-
-            Reinas reina = (x == 0) ?
-                    new Reinas("Reina +", posicion):
-                    new Reinas("Reina -", posicion);
-        }
+    public Reinas posicionIni(int i){
+        int columna = (i < 1) ? 0 : 7;
+        int[] posicion = new int[]{columna, 4};
+        return (1 < 2) ?
+                new Reinas("(+)", posicion):
+                new Reinas("(-)", posicion);
     }
 }
-*/
+

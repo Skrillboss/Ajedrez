@@ -5,10 +5,14 @@ public class Main {
         String[][][] tableroArray = tablero.getTablero();
         Peones[] peones = new Peones[16];
         Torres[] torres = new Torres[4];
+        Caballos[] caballos = new Caballos[4];
+        Alfiles[] alfiles = new Alfiles[4];
+        Reyes[] reyes = new Reyes[2];
+        Reinas[] reinas = new Reinas[2];
 
         // creacion de peones
         for(int i = 0; i < 16; i++){
-            peones[i] = new Peones("+", new int[]{0, 0});
+            peones[i] = new Peones("", new int[]{});
             peones[i] = peones[i].posicionIni(i);
         }
         // creacion de torres
@@ -16,20 +20,72 @@ public class Main {
             torres[i] = new Torres("", new int[]{});
             torres[i] = torres[i].posicionIni(i);
         }
+        //creacion de caballos
+        for(int i = 0; i < 4; i++){
+            caballos[i] = new Caballos("", new int[]{});
+            caballos[i] = caballos[i].posicionIni(i);
+        }
+        //creacion de alfiles
+        for(int i = 0; i < 4; i++){
+            alfiles[i] = new Alfiles("", new int[]{});
+            alfiles[i] = alfiles[i].posicionIni(i);
+        }
+        //creacion de reyes
+        for(int i = 0; i < 2; i++){
+            reyes[i] = new Reyes("", new int[]{});
+            reyes[i] = reyes[i].posicionIni(i);
+        }
+        //creacion de reinas
+        for(int i = 0; i < 2; i++){
+            reinas[i] = new Reinas("", new int[]{});
+            reinas[i] = reinas[i].posicionIni(i);
+        }
+
+
+
         // posicionamiento de peones
         for(int i = 0; i < 16; i++){
             int x = peones[i].getPosicion()[0];
             int y = peones[i].getPosicion()[1];
             String nombre = peones[i].getNombre();
-
             tablero.setTablero(x, y, nombre);
         }
-
-        //jposicionamiento de torres
+        //posicionamiento de torres
         for(int i = 0; i < 4; i++){
             int x = torres[i].getPosicion()[0];
             int y = torres[i].getPosicion()[1];
             String nombre = torres[i].getNombre();
+            tablero.setTablero(x, y, nombre);
+        }
+
+        //posicionamiento de caballos
+        for(int i = 0; i < 4; i++){
+            int x = caballos[i].getPosicion()[0];
+            int y = caballos[i].getPosicion()[1];
+            String nombre = caballos[i].getNombre();
+            tablero.setTablero(x, y, nombre);
+        }
+
+        //posicionamiento de alfiles
+        for(int i = 0; i < 4; i++){
+            int x = alfiles[i].getPosicion()[0];
+            int y = alfiles[i].getPosicion()[1];
+            String nombre = alfiles[i].getNombre();
+            tablero.setTablero(x, y, nombre);
+        }
+
+        //posicionamiento de reyes
+        for(int i = 0; i < 2; i++){
+            int x = reyes[i].getPosicion()[0];
+            int y = reyes[i].getPosicion()[1];
+            String nombre = reyes[i].getNombre();
+            tablero.setTablero(x, y, nombre);
+        }
+        //posicionamiento de reinas
+        for(int i = 0; i < 2; i++){
+            int x = reinas[i].getPosicion()[0];
+            int y = reinas[i].getPosicion()[1];
+            String nombre = reinas[i].getNombre();
             tablero.setTablero(x, y, nombre);
         }
 
